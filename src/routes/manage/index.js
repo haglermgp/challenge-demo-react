@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import { loadMangeList  } from '../../redux/actions'
 import {
@@ -27,6 +28,7 @@ class Manage extends React.Component {
 
 		return (
 			<React.Fragment>
+				<Helmet> <title>Manage | Code Challenge </title> </Helmet>
 				<TitleSection title="Manage data" />
 				<Grid container spacing={3} >
 					<Grid item xs={12} sm={12} md={4} lg={3} >

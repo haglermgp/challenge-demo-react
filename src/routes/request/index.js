@@ -1,4 +1,5 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import { connect } from 'react-redux'
 import { loadRequestsList  } from '../../redux/actions'
 
@@ -24,6 +25,7 @@ class RequestsList extends React.Component {
 
 		return (
 			<React.Fragment>
+				<Helmet> <title>Request | Code Challenge </title> </Helmet>
 				<TitleSection title="Requests" />
 				<Grid container >
 					<Grid item xs={12} >
