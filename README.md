@@ -1,6 +1,5 @@
+## Challenge Avanctica
 This Challenge Avantica single page application its build mainly with HTML, Css in Js, Javascript, React, Redux, Material-ui and Json Server as a local REST API for prototyping and mocking purposes.
-
-## Challenge Avanctica Instructions
 
 ## Project Requirements
 Make that your system of your computer have the next requirements <br>
