@@ -11,7 +11,7 @@ const MainLayout = (WrappedComponent) => {
 				<React.Fragment>
 					<Header/>
 					<Grid container justify="center" >
-						<Grid xs={11} sm={10} md={8} lg={8} >
+						<Grid item xs={11} sm={10} md={8} lg={8} >
 							<WrappedComponent/>
 						</Grid>
 					</Grid>

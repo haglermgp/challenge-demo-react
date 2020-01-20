@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { updateManage  } from '../../../redux/actions'
 
 // ui components
@@ -50,21 +49,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage }) => {
+const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage, history }) => {
 	const classes = useStyles()
 	const [changeManage, setChangeManage] = React.useState(false)
-	const [type, setChangeType] = React.useState("")
-	const [checked, setChecked] = React.useState("")
+	const [type, setChangeType] = React.useState("Easy");
+	const [checked, setChecked] = React.useState(false);
 
 	React.useEffect(() => {
-		if (data.type !== undefined && type === "") setChangeType(data.type)
-
-		if (data.sensitivity !== undefined && checked === "" ) setChecked(data.sensitivity)
-  });
-
-	const handleChangeManage = () => {
-		setChangeManage(true)
-  }
+		setChangeType(data.type);
+		setChecked(data.sensitivity);
+	}, [data]);
 
   const handleSubmit = e => {
 		e.preventDefault()
@@ -89,19 +83,24 @@ const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage }) => {
     	id: data.id,
     }
 
-    if (changeManage) onUpdateManage(dataManage, data.id)
+    onUpdateManage(dataManage, data.id);
+    handleCancel();
   }
 
-	const handleCancel = () => setChangeManage(false)
+	const handleCancel = () => {
+    history.push('/manage')
+    setChangeManage(false);
+  }
 
 	const handleChangeType = (e, data) => {
-		setChangeType(e.target.value)
-		handleChangeManage()
-  }
-
-	const handleChangeChecked = (e) => {
-		setChecked(!checked)
-  }
+		setChangeType(e.target.value);
+		setChangeManage(true);
+	}
+	
+	const handleChecked = () => {
+		setChecked(!checked);
+		setChangeManage(true);
+	}
 
 	return (
 		<Paper className={classes.paper} >
@@ -115,8 +114,6 @@ const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage }) => {
 						<Button
 							color="secondary"
 							size="small"
-							component={Link}
-							to="/manage"
 							onClick={() => handleCancel()}
 							disabled={status.loading.post}
 						>
@@ -151,7 +148,7 @@ const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage }) => {
 	          tabIndex="0"
 	          defaultValue={data.name}
 	          key={`name-${data.name}`}
-	          onChange={() => handleChangeManage()}
+	          onChange={() => setChangeManage(true)}
 		      >
 		      </TextField>
 					<br/>
@@ -169,7 +166,7 @@ const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage }) => {
 	          tabIndex="0"
 	          defaultValue={data.description}
 	          key={`description-${data.description}`}
-	          onChange={() => handleChangeManage()}
+	          onChange={() => setChangeManage(true)}
 		        multiline
 		        rows={2}
 		      >
@@ -191,7 +188,7 @@ const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage }) => {
 		        margin="dense"
 		        required
 	          name="type"
-	          value={type}
+						defaultValue={type}
 	          key={`type-${type}`}
 	          onChange={(e,data) => handleChangeType(e,data)}
 	          variant="outlined"
@@ -212,8 +209,8 @@ const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage }) => {
 		        control={
 		          <Checkbox
 		          	key={`sensitivity-${checked}`}
-		            checked={checked}
-		            onChange={() => handleChangeChecked()}
+								defaultChecked={checked}
+		            onChange={() => handleChecked()}
 		            color="primary"
 		          />
 		        }
@@ -227,6 +224,7 @@ const ManageKeyEdit = ({ manage: { data, status }, onUpdateManage }) => {
 				size="small"
 				variant="outlined"
 				className={classes.button}
+				disabled={true}
 			>
 				<AddIcon/> Add posible value
 			</Button>

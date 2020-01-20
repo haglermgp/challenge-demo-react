@@ -53,8 +53,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const mapStateToProps = ({
-}) => ({
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(AppBarRequest)
+export default connect(() => {return {}}, mapDispatchToProps)(AppBarRequest)

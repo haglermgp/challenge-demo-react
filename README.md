@@ -47,6 +47,6 @@ Open a second terminal and install the package json-server for serve Challenge A
 
 Run the next command for serve the JSON server <br>
 
-#### `json-server --watch DataBaseServer.json --port 8080`
+#### `json-server --watch DataBaseServer.json --port 8080` or `npm run api:serve`
 
 Great! now our server is running on port 8080

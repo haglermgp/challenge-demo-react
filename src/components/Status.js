@@ -25,7 +25,7 @@ const Status = ({ status }) => {
 			break;
 		default:
 			label = "Pending"
-			color = "inherit"
+			color = "default"
 	}
 
 	return (

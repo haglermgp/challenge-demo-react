@@ -11,7 +11,6 @@ import {
   Route,
 } from 'react-router-dom'
 
-
 const Root = ({ store }) => (
   <Provider store={store} >
   	<Router>

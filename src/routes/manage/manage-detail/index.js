@@ -38,45 +38,52 @@ const ManageKeyDetail = ({ manage: { data } }) => {
 
 	return (
 		<Paper className={classes.paper} >
-			<div className={classes.headerDetail} >
-				<Typography variant="h6" >
-					{data.name}
-				</Typography>
-				<Button
-					color="primary"
-					variant="outlined"
-					size="small"
-					component={Link}
-					to="/manage/edit"
-				>
-					<EditIcon/> Edit
-				</Button>
-			</div>
+			{
+				data.name !== undefined ? (
+					<>
+						<div className={classes.headerDetail} >
+							<Typography variant="h6" >
+								{data.name}
+							</Typography>
+							<Button
+								color="primary"
+								variant="outlined"
+								size="small"
+								component={Link}
+								to="/manage/edit"
+							>
+								<EditIcon/> Edit
+							</Button>
+						</div>
 
-			<div className={classes.detail} >
-				<Typography variant="subtitle2" >
-					Description
-				</Typography>
-				<Typography variant="body2" >
-					{data.description}
-				</Typography>
-				<br/>
-				<Typography variant="subtitle2" >
-					Type
-				</Typography>
-				<Typography variant="body2" >
-					{data.type}
-				</Typography>
-				<br/>
-				<Typography variant="subtitle2" >
-					Sensitivity
-				</Typography>
-				<Typography variant="body2" >
-					{ data.sensitivity ? "The sensitivity data is able" : "The sensitivity data is disabled" }
-				</Typography>
-			</div>
-			
-      <DataTable data={data.posibleValues} />
+						<div className={classes.detail} >
+							<Typography variant="subtitle2" >
+								Description
+							</Typography>
+							<Typography variant="body2" >
+								{data.description}
+							</Typography>
+							<br/>
+							<Typography variant="subtitle2" >
+								Type
+							</Typography>
+							<Typography variant="body2" >
+								{data.type}
+							</Typography>
+							<br/>
+							<Typography variant="subtitle2" >
+								Sensitivity
+							</Typography>
+							<Typography variant="body2" >
+								{ data.sensitivity ? "The sensitivity data is able" : "The sensitivity data is disabled" }
+							</Typography>
+						</div>
+						<DataTable data={data.posibleValues} />
+					</>
+				) : (
+					<p align="center" >*No Item select</p>
+				)
+			}
 		</Paper>
 	)
 }

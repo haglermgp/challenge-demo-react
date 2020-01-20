@@ -3,47 +3,35 @@
     {
       "name": "Germany",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      "type": "Hard",
-      "sensitivity": false,
+      "type": "Regular",
+      "sensitivity": true,
       "id": 1
     },
     {
       "name": "France",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      "type": "Regular",
+      "type": "Hard",
       "sensitivity": true,
       "id": 2
     },
     {
-      "name": "Japanes",
+      "name": "Japane",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "type": "Easy",
-      "sensitivity": false,
+      "sensitivity": true,
       "id": 3
     },
     {
-      "id": 4,
       "name": "Chinese",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
       "type": "Hard",
       "sensitivity": false,
-      "posibleValues": [
-        {
-          "id": 1,
-          "value": "color",
-          "description": "consectetur adipisicing elit."
-        },
-        {
-          "id": 2,
-          "value": "book",
-          "description": "consectetur adipisicing elit."
-        }
-      ]
+      "id": 4
     },
     {
       "name": "Spanish",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-      "type": "Regular",
+      "type": "Hard",
       "sensitivity": true,
       "id": 5
     }

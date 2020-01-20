@@ -38,11 +38,10 @@ const ManageKeyList = ({ manageList, onSelectManage }) => {
 			        	{item.name}
 			        </MenuItem>
 		    	))}
-
 			    { manageList.data.length === 0 && <CircularProgress className={classes.progress} /> }
 	      </MenuList>
 	    </Paper>
-	    <Button color="primary" variant="outlined" size="small" >
+	    <Button color="primary" variant="outlined" size="small" disabled={true} >
 	    	<AddIcon/> Add key
 	    </Button>
 		</React.Fragment>

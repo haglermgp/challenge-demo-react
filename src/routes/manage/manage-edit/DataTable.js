@@ -2,7 +2,7 @@ import React from 'react';
 import MaterialTable from 'material-table';
 
 const DataTable = () => {
-  const [state, setState] = React.useState({
+  const [tableState] = React.useState({
     columns: [
       { title: 'Value', field: 'value' },
       { title: 'Description', field: 'description' },
@@ -23,8 +23,8 @@ const DataTable = () => {
       options={{
         search: false,
       }}
-      columns={state.columns}
-      data={state.data}
+      columns={tableState.columns}
+      data={tableState.data}
       elevation={0}
       style={{ boxShadow: 'none' }}
     />
