@@ -29,10 +29,8 @@ const commonArrayReducer = props => {
 
       return {
         status,
-        data: [...payload]
-        // data: [...data, ...payload]
+        data: [...data, ...payload]
       }
-      // return  [ ...state, ...payload ]
 
     case `ADD_${nameTypeAction}`:
       return {
@@ -45,7 +43,6 @@ const commonArrayReducer = props => {
         status,
         data: [...payload]
       }
-      // return  [ ...state, payload ]
 
     case `UPDATE_${nameTypeAction}`:
       
@@ -53,18 +50,15 @@ const commonArrayReducer = props => {
         status,
         data: data.map(item => updateData(item, payload, fieldUpdate))
       }
-      // return state.map(item => updateData(item, payload, fieldUpdate))
 
     case `DELETE_${nameTypeAction}`:
       return {
         status,
         data: data.filter(item => item[`${fielDelete}`] !== payload)
       }
-      // return state.filter(item => item[`${fielDelete}`] !== payload)
 
     default:
       return {
-        // status: {},
         status: statusReducer(undefined, action, nameTypeAction),
         data: [...data]
       }
@@ -78,8 +72,6 @@ const commonObjectReducer = props => {
     action,
     nameState,
     nameTypeAction,
-    // fieldUpdate,
-    // fielDelete
   } = props
 
   let payload = action[`${nameState}`]
@@ -90,38 +82,30 @@ const commonObjectReducer = props => {
       return {
         status,
         data: {...payload}
-        // data: [...data, ...payload]
       }
-      // return  [ ...state, ...payload ]
 
     case `ADD_${nameTypeAction}`:
       return {
         status,
         data: {...data, ...payload}
       }
-      // return  [ ...state, payload ]
 
     // ********* SUBJECT TO CHANGE
     case `UPDATE_${nameTypeAction}`:
       return {
         status,
         data: {...data, ...payload}
-        // data: data.map(item => updateData(item, payload, fieldUpdate))
       }
-      // return state.map(item => updateData(item, payload, fieldUpdate))
 
     // ********* SUBJECT TO CHANGE
     case `DELETE_${nameTypeAction}`:
       return {
         status,
         data: {...data}
-        // data: data.filter(item => item[`${fielDelete}`] !== payload)
       }
-      // return state.filter(item => item[`${fielDelete}`] !== payload)
 
     default:
       return {
-        // status: {},
         status: statusReducer(undefined, action, nameTypeAction),
         data: {...data}
       }

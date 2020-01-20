@@ -36,9 +36,6 @@ async function onPost (props) {
   const { url, data, id } = props
   let URL = ROOT_URL.URL + url
 
-  // console.log(' url on Post >>>>>>>>>>>', URL)
-  // console.log(' data on Post >>>>>>>>>>>', data)
-
   return new Promise((resolve, reject) => {
     if (id === undefined) {
       // new

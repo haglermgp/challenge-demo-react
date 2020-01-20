@@ -21,6 +21,7 @@ class Manage extends React.Component {
 	componentDidMount() {
 		const { manageList, onLoadMangeList } = this.props;
 
+		// API call
 		if (manageList.data.length === 0) onLoadMangeList()
 	}
 

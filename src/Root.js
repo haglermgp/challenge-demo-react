@@ -11,6 +11,7 @@ import {
   Route,
 } from 'react-router-dom'
 
+// The root function that receive and provide the redux store configuration to all views of the project
 const Root = ({ store }) => (
   <Provider store={store} >
   	<Router>

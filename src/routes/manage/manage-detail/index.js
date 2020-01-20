@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const ManageKeyDetail = ({ manage: { data } }) => {
-	const classes = useStyles()
+	const classes = useStyles();
 
 	return (
 		<Paper className={classes.paper} >

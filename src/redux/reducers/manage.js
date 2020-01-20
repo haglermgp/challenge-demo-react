@@ -16,8 +16,6 @@ const manage = (state = { status: {}, data: {} }, action) =>
     action,
     nameState: 'manage', // name state
     nameTypeAction: 'MANAGE', // name action
-    fieldUpdate: 'id',
-    fieldDelete: 'id',
   })
 
 export { manageList, manage }
